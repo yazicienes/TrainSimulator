@@ -1096,7 +1096,7 @@ if(run==true){
           ctx.shadowBlur = undefined;
         }
         
-        ctx.fillStyle = "#ddd";
+        ctx.fillStyle = "#800000";
         ctx.fillRect(this.x-3,this.y+this.height-(this.height/2)+3,1,(this.height/2));						
       }
       //traffic lights (right)
@@ -1141,7 +1141,7 @@ if(run==true){
           ctx.shadowBlur = undefined;
         }
         
-        ctx.fillStyle = "#ddd";
+        ctx.fillStyle = "#800000";
         ctx.fillRect(this.x+this.width+2,this.y-3,1,(this.height/2));		
       }
       //traffic lights (top)
@@ -1186,7 +1186,7 @@ if(run==true){
           ctx.shadowBlur = undefined;
         }
         
-        ctx.fillStyle = "#ddd";
+        ctx.fillStyle = "#800000";
         ctx.fillRect(this.x-3,this.y-2,(this.width/2),1);
       }
       //traffic lights (bottom)
@@ -1231,7 +1231,7 @@ if(run==true){
           ctx.shadowBlur = undefined;
         }
         
-        ctx.fillStyle = "#ddd";
+        ctx.fillStyle = "#800000";
         ctx.fillRect(this.x+(this.width/2)+3,this.y+this.height+2,(this.width/2),1);
       }
     }
@@ -1376,4 +1376,13 @@ if(run==true){
   }
   init();
   animloop();
+}
+function  reset(){
+   var ele = document.getElementsByName("command");
+   for(var i=0;i<ele.length;i++)
+      ele[i].checked = false;
+}
+function  changeCarId(){
+  var speed = document.getElementById("speed").innerHTML="45km/hr";
+  var location = document.getElementById("location").innerHTML="X: 22, Y:54";
 }
