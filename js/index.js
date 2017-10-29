@@ -9,7 +9,7 @@ window.requestAnimFrame = (function(){
   };
 })();
 
-var car_no = 36;
+var car_no = 1;
 var canvas = document.getElementsByTagName("canvas")[0];
 var ctx = canvas.getContext("2d");
 
@@ -22,7 +22,7 @@ var BrowserDetect = {
     this.OS = this.searchString(this.dataOS) || "an unknown OS";
   },
   searchString: function (data) {
-    for (var i=0;i<data.length;i++)	{
+    for (var i=0;i<data.length;i++) {
       var dataString = data[i].string;
       var dataProp = data[i].prop;
       this.versionSearchString = data[i].versionSearch || data[i].identity;
@@ -45,7 +45,7 @@ var BrowserDetect = {
       subString: "Chrome",
       identity: "Chrome"
     },
-    { 	string: navigator.userAgent,
+    {   string: navigator.userAgent,
      subString: "OmniWeb",
      versionSearch: "OmniWeb/",
      identity: "OmniWeb"
@@ -81,7 +81,7 @@ var BrowserDetect = {
       subString: "Camino",
       identity: "Camino"
     },
-    {		// for newer Netscapes (6+)
+    {   // for newer Netscapes (6+)
       string: navigator.userAgent,
       subString: "Netscape",
       identity: "Netscape"
@@ -98,7 +98,7 @@ var BrowserDetect = {
       identity: "Mozilla",
       versionSearch: "rv"
     },
-    { 		// for older Netscapes (4-)
+    {     // for older Netscapes (4-)
       string: navigator.userAgent,
       subString: "Mozilla",
       identity: "Netscape",
@@ -167,27 +167,27 @@ if(run==true){
     roads = [];
     intersections_arr = [];
     var car_no = $("input").val();
+    
     $(".car_no").html(car_no);
+
     for(var i=0;i<car_no;i++){
       var car = new drawcar();
       car.s = 5;
       var pos_rand = Math.random();
       if(pos_rand < 0.5){
-        car.x = w+25;
-        car.y = 378;
-        car.d = "w";
+        car.x = 0;
+        car.y = h/2;
+        car.d = "e";
       }
       else{
-        car.x = 786;
-        car.y = h+25;
+        car.x = w/2.5;
+        car.y = 0;
         car.d = "n";
       }
       var color_rand = Math.random();
       var color = "";
-      if(color_rand < 0.2){
-        var color = "#fff";
-      }
-      else if(color_rand > 0.2 && color_rand < 0.4){
+     
+      if(color_rand < 0.4){
         var color = "#E22322";
       }
         else if(color_rand > 0.4 && color_rand < 0.6){
@@ -201,12 +201,12 @@ if(run==true){
           }
           console.log(color);
       car.color = color;
-      cars.push(car);	
+      cars.push(car); 
     }
     
     //road1
     var road = new drawroad();
-    road.x = 0, road.y = ((h/2)-40), road.width = w, road.height = 40;
+    road.x = 0, road.y = ((h/2)), road.width = w, road.height = 40;
     roads.push(road);
     
     //road2
@@ -628,7 +628,7 @@ if(run==true){
             }
             if(counter==0){
               //car past intersection reset random generator
-              c.dd = false;	
+              c.dd = false; 
             }
           }
         }
@@ -701,7 +701,7 @@ if(run==true){
             }
             if(counter==0){
               //car past intersection reset random generator
-              c.dd = false;	
+              c.dd = false; 
             }
           }
         }
@@ -773,7 +773,7 @@ if(run==true){
               }
               if(counter==0){
                 //car past intersection reset random generator
-                c.dd = false;	
+                c.dd = false; 
               }
             }
           }
@@ -845,7 +845,7 @@ if(run==true){
               }
               if(counter==0){
                 //car past intersection reset random generator
-                c.dd = false;	
+                c.dd = false; 
               }
             }
           }
@@ -885,7 +885,7 @@ if(run==true){
     this.x = 0;
     this.y = 0;
     this.s = 5;
-    this.l = 25; //length of vehicle
+    this.l = 180; //length of vehicle
     this.d = "e";
     this.dd = false;
     this.color = "#F5D600";
@@ -896,47 +896,37 @@ if(run==true){
         this.w = 25;
         ctx.rounded_rect(this.x, this.y, this.l, 12);
         ctx.fillStyle="#99B3CE";
-        ctx.fillRect(this.x+5, this.y, 5, 12);
-        ctx.fillRect(this.x+18, this.y, 2, 12);
+       
+        ctx.fillStyle="#99B3CE";
+        ctx.fillRect(this.x+30, this.y, 2, 12);
+
         ctx.fillStyle = this.color;
+
+        ctx.fillStyle="#99B3CE";
+        ctx.fillRect(this.x+60, this.y, 2, 12);
+        ctx.fillRect(this.x+90, this.y, 2, 12);
+        ctx.fillRect(this.x+120, this.y, 2, 12);
+        ctx.fillRect(this.x+150, this.y, 2, 12);
+        ctx.fillStyle = this.color;
+
         ctx.fillRect(this.x+6, this.y-2, 2 ,2);
         ctx.fillRect(this.x+6, this.y+12, 2 ,2);
       }
       else if(this.d == "e"){
-        this.w = 25;
+         this.w = 25;
         ctx.rounded_rect(this.x, this.y, this.l, 12);
         ctx.fillStyle="#99B3CE";
-        ctx.fillRect(this.x+15, this.y, 5, 12);
-        ctx.fillRect(this.x+4, this.y, 2, 12);
+       
+        ctx.fillStyle="#99B3CE";
+        ctx.fillRect(this.x+30, this.y, 2, 12);
         ctx.fillStyle = this.color;
-        ctx.fillRect(this.x+14, this.y-2, 2 ,2);
-        ctx.fillRect(this.x+14, this.y+12, 2 ,2);
+        ctx.fillStyle="#99B3CE";
+        ctx.fillRect(this.x+60, this.y, 2, 12);
+        ctx.fillRect(this.x+90, this.y, 2, 12);
+        ctx.fillRect(this.x+120, this.y, 2, 12);
+        ctx.fillRect(this.x+150, this.y, 2, 12);
+        ctx.fillStyle = this.color;
       }
-        else if(this.d == "s"){
-          this.w = 12;
-          ctx.rotate(Math.PI/2);
-          ctx.rounded_rect(this.y, -this.x, this.l, 12);
-          ctx.fillStyle="#99B3CE";
-          ctx.fillRect(this.y+15, -this.x, 5, 12);
-          ctx.fillRect(this.y+4, -this.x, 2, 12);
-          ctx.fillStyle = this.color;
-          ctx.fillRect(this.y+14, -this.x-2, 2 ,2);
-          ctx.fillRect(this.y+14, -this.x+12, 2 ,2);
-          ctx.rotate(-Math.PI/2);
-          
-        }
-        else{
-          this.w = 12;
-          ctx.rotate(Math.PI/2);
-          ctx.rounded_rect(this.y, -this.x, this.l, 12);
-          ctx.fillStyle="#99B3CE";
-          ctx.fillRect(this.y+5, -this.x, 5, 12);
-          ctx.fillRect(this.y+18, -this.x, 2, 12);
-          ctx.fillStyle = this.color;
-          ctx.fillRect(this.y+6, -this.x-2, 2 ,2);
-          ctx.fillRect(this.y+6, -this.x+12, 2 ,2);
-          ctx.rotate(-Math.PI/2);
-        }
     }
   }
   
@@ -1096,8 +1086,13 @@ if(run==true){
           ctx.shadowBlur = undefined;
         }
         
+<<<<<<< HEAD
         ctx.fillStyle = "#800000";
         ctx.fillRect(this.x-3,this.y+this.height-(this.height/2)+3,1,(this.height/2));						
+=======
+        ctx.fillStyle = "#ddd";
+        ctx.fillRect(this.x-3,this.y+this.height-(this.height/2)+3,1,(this.height/2));            
+>>>>>>> 247b0f80e743f1a78e0af95ab683f8ed9de965ea
       }
       //traffic lights (right)
       if(this.roadright == true){
@@ -1141,8 +1136,13 @@ if(run==true){
           ctx.shadowBlur = undefined;
         }
         
+<<<<<<< HEAD
         ctx.fillStyle = "#800000";
         ctx.fillRect(this.x+this.width+2,this.y-3,1,(this.height/2));		
+=======
+        ctx.fillStyle = "#ddd";
+        ctx.fillRect(this.x+this.width+2,this.y-3,1,(this.height/2));   
+>>>>>>> 247b0f80e743f1a78e0af95ab683f8ed9de965ea
       }
       //traffic lights (top)
       if(this.roadtop == true){
