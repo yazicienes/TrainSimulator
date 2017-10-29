@@ -1090,8 +1090,13 @@ if(run==true){
           ctx.shadowBlur = undefined;
         }
         
+<<<<<<< HEAD
+        ctx.fillStyle = "#800000";
+        ctx.fillRect(this.x-3,this.y+this.height-(this.height/2)+3,1,(this.height/2));						
+=======
         ctx.fillStyle = "#ddd";
         ctx.fillRect(this.x-3,this.y+this.height-(this.height/2)+3,1,(this.height/2));            
+>>>>>>> 247b0f80e743f1a78e0af95ab683f8ed9de965ea
       }
       //traffic lights (right)
       if(this.roadright == true){
@@ -1135,8 +1140,13 @@ if(run==true){
           ctx.shadowBlur = undefined;
         }
         
+<<<<<<< HEAD
+        ctx.fillStyle = "#800000";
+        ctx.fillRect(this.x+this.width+2,this.y-3,1,(this.height/2));		
+=======
         ctx.fillStyle = "#ddd";
         ctx.fillRect(this.x+this.width+2,this.y-3,1,(this.height/2));   
+>>>>>>> 247b0f80e743f1a78e0af95ab683f8ed9de965ea
       }
       //traffic lights (top)
       if(this.roadtop == true){
@@ -1180,7 +1190,7 @@ if(run==true){
           ctx.shadowBlur = undefined;
         }
         
-        ctx.fillStyle = "#ddd";
+        ctx.fillStyle = "#800000";
         ctx.fillRect(this.x-3,this.y-2,(this.width/2),1);
       }
       //traffic lights (bottom)
@@ -1225,7 +1235,7 @@ if(run==true){
           ctx.shadowBlur = undefined;
         }
         
-        ctx.fillStyle = "#ddd";
+        ctx.fillStyle = "#800000";
         ctx.fillRect(this.x+(this.width/2)+3,this.y+this.height+2,(this.width/2),1);
       }
     }
@@ -1370,4 +1380,13 @@ if(run==true){
   }
   init();
   animloop();
+}
+function  reset(){
+   var ele = document.getElementsByName("command");
+   for(var i=0;i<ele.length;i++)
+      ele[i].checked = false;
+}
+function  changeCarId(){
+  var speed = document.getElementById("speed").innerHTML="45km/hr";
+  var location = document.getElementById("location").innerHTML="X: 22, Y:54";
 }
