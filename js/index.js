@@ -22,7 +22,7 @@ var BrowserDetect = {
     this.OS = this.searchString(this.dataOS) || "an unknown OS";
   },
   searchString: function (data) {
-    for (var i=0;i<data.length;i++)	{
+    for (var i=0;i<data.length;i++) {
       var dataString = data[i].string;
       var dataProp = data[i].prop;
       this.versionSearchString = data[i].versionSearch || data[i].identity;
@@ -45,7 +45,7 @@ var BrowserDetect = {
       subString: "Chrome",
       identity: "Chrome"
     },
-    { 	string: navigator.userAgent,
+    {   string: navigator.userAgent,
      subString: "OmniWeb",
      versionSearch: "OmniWeb/",
      identity: "OmniWeb"
@@ -81,7 +81,7 @@ var BrowserDetect = {
       subString: "Camino",
       identity: "Camino"
     },
-    {		// for newer Netscapes (6+)
+    {   // for newer Netscapes (6+)
       string: navigator.userAgent,
       subString: "Netscape",
       identity: "Netscape"
@@ -98,7 +98,7 @@ var BrowserDetect = {
       identity: "Mozilla",
       versionSearch: "rv"
     },
-    { 		// for older Netscapes (4-)
+    {     // for older Netscapes (4-)
       string: navigator.userAgent,
       subString: "Mozilla",
       identity: "Netscape",
@@ -167,7 +167,7 @@ if(run==true){
     roads = [];
     intersections_arr = [];
     var car_no = $("input").val();
-    car_no = 5;
+    
     $(".car_no").html(car_no);
 
     for(var i=0;i<car_no;i++){
@@ -175,21 +175,19 @@ if(run==true){
       car.s = 5;
       var pos_rand = Math.random();
       if(pos_rand < 0.5){
-        car.x = w+25;
-        car.y = 378;
-        car.d = "w";
+        car.x = 0;
+        car.y = h/2;
+        car.d = "e";
       }
       else{
-        car.x = 786;
-        car.y = h+25;
+        car.x = w/2.5;
+        car.y = 0;
         car.d = "n";
       }
       var color_rand = Math.random();
       var color = "";
-      if(color_rand < 0.2){
-        var color = "#fff";
-      }
-      else if(color_rand > 0.2 && color_rand < 0.4){
+     
+      if(color_rand < 0.4){
         var color = "#E22322";
       }
         else if(color_rand > 0.4 && color_rand < 0.6){
@@ -203,12 +201,12 @@ if(run==true){
           }
           console.log(color);
       car.color = color;
-      cars.push(car);	
+      cars.push(car); 
     }
     
     //road1
     var road = new drawroad();
-    road.x = 0, road.y = ((h/2)-40), road.width = w, road.height = 40;
+    road.x = 0, road.y = ((h/2)), road.width = w, road.height = 40;
     roads.push(road);
     
     //road2
@@ -630,7 +628,7 @@ if(run==true){
             }
             if(counter==0){
               //car past intersection reset random generator
-              c.dd = false;	
+              c.dd = false; 
             }
           }
         }
@@ -703,7 +701,7 @@ if(run==true){
             }
             if(counter==0){
               //car past intersection reset random generator
-              c.dd = false;	
+              c.dd = false; 
             }
           }
         }
@@ -775,7 +773,7 @@ if(run==true){
               }
               if(counter==0){
                 //car past intersection reset random generator
-                c.dd = false;	
+                c.dd = false; 
               }
             }
           }
@@ -847,7 +845,7 @@ if(run==true){
               }
               if(counter==0){
                 //car past intersection reset random generator
-                c.dd = false;	
+                c.dd = false; 
               }
             }
           }
@@ -1089,7 +1087,7 @@ if(run==true){
         }
         
         ctx.fillStyle = "#ddd";
-        ctx.fillRect(this.x-3,this.y+this.height-(this.height/2)+3,1,(this.height/2));						
+        ctx.fillRect(this.x-3,this.y+this.height-(this.height/2)+3,1,(this.height/2));            
       }
       //traffic lights (right)
       if(this.roadright == true){
@@ -1134,7 +1132,7 @@ if(run==true){
         }
         
         ctx.fillStyle = "#ddd";
-        ctx.fillRect(this.x+this.width+2,this.y-3,1,(this.height/2));		
+        ctx.fillRect(this.x+this.width+2,this.y-3,1,(this.height/2));   
       }
       //traffic lights (top)
       if(this.roadtop == true){
