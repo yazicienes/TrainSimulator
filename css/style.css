@@ -11,19 +11,21 @@ canvas{
 
 .box{
   position: fixed;
-  width: 110px;
-  height: 80px;
+  width: 20%;
+  height: 20%;
   background:rgba(0,0,0,0.3);
   top: 0px;
   padding: 5px;
-  left: 0px;
+  left: 20%;
   z-index: 5;
   font-family: Arial;
   font-size: 13px;
-  color: #333;
-  border-radius: 0 0 5px 0;
+  color: white;
+  border-radius: 5px 5px 5px 5px;
   border-right: 2px solid #fff;
   border-bottom: 2px solid #fff;
+  border-left: 2px solid #fff;
+  border-top: 2px solid #fff;
 }
 
 .box a{
