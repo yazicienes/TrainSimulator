@@ -174,15 +174,19 @@ if(run==true){
       var car = new drawcar();
       car.s = 5;
       var pos_rand = Math.random();
-      if(pos_rand < 0.5){
+      if(pos_rand < 0.2){
         car.x = 0;
         car.y = h/2;
         car.d = "e";
+      }else if (pos_rand < 0.6){
+        car.x = w/2.5;
+        car.y = h;
+        car.d = "n";
       }
       else{
         car.x = w/2.5;
         car.y = 0;
-        car.d = "n";
+        car.d = "s";
       }
       var color_rand = Math.random();
       var color = "";
